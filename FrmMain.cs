@@ -129,8 +129,16 @@ namespace QPCommentWatcher
                 {
                     UpdateStatus(ex.Message);
                 }
+
+                try
+                {
+                    Process.Start(SublimeTextPath, string.Format("\"{0}\"", e.FullPath));
+                }
+                catch (Exception ex)
+                {
+                    
+                }
                 
-                Process.Start(SublimeTextPath, string.Format("\"{0}\"",e.FullPath));
                 
             }
             //Console.WriteLine("File: " + e.FullPath + " " + e.ChangeType);
